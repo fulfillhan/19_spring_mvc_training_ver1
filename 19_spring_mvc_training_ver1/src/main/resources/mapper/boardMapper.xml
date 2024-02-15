@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.application.trainingVer1.dao.BoardDAO">
+
+
+<insert id="createBoard" parameterType="BoardDTO">
+ INSERT INTO BOARD( 
+ 	WRITER,
+ 	SUBJECT,
+ 	PASSWD,
+ 	CONTENT
+ )
+ VALUES(
+  	#{writer},
+  	#{subject},
+  	#{passwd},
+  	#{content}
+ 
+ )
+
+</insert>
+
+<select id="getBoardList" resultType="BoardDTO">
+	SELECT  *
+	FROM 	BOARD
+</select>
+
+<select id="getBoardDetail" parameterType="long" resultType="BoardDTO">
+	SELECT  *
+	FROM 	BOARD
+	WHERE 	BOARD_ID=#{boardId}
+</select>
+
+<update id="updateReadCnt" parameterType="long">
+
+	UPDATE         BOARD
+	SET READ_CNT   = READ_CNT+1
+	WHERE BOARD_ID = #{boardId}
+</update>
+
+</mapper>
+
+

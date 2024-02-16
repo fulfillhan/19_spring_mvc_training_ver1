@@ -38,6 +38,24 @@
 	WHERE BOARD_ID = #{boardId}
 </update>
 
+<select id="getEncodePasswd" parameterType="long" resultType="String">
+		SELECT PASSWD
+		FROM BOARD
+		WHERE BOARD_ID=#{boardId}
+
+</select>
+<update id="updateBoard" parameterType="BoardDTO">
+UPDATE BOARD
+SET SUBJECT = #{subject},
+	CONTENT = #{content}
+WHERE BOARD_ID = #{boardId}
+ </update>
+ 
+ <delete id="deleteBoard" parameterType="long">
+ DELETE FROM BOARD
+ WHERE BOARD_ID=#{boardId}
+ </delete>
+
 </mapper>
 
 

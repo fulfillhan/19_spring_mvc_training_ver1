@@ -16,4 +16,5 @@ public interface BoardDAO {
 	public BoardDTO getBoardDetail(long boardId);
 	
 	public void updateReadCnt(long boardId);
+	
 }

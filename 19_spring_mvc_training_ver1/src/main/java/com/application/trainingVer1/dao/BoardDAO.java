@@ -2,6 +2,7 @@ package com.application.trainingVer1.dao;
 
 import java.util.List;
 
+
 import org.apache.ibatis.annotations.Mapper;
 
 import com.application.trainingVer1.dto.BoardDTO;

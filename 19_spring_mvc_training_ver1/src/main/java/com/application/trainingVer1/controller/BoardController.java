@@ -132,6 +132,9 @@ public class BoardController {
 		return jsScript;
 	}
 	
+	//(type=Bad Request, status=400 오류 발생
+	//Failed to convert value of type 'java.lang.String' to required type 'long'; For input string: "${boardDTO.boardId}"
+	//해결: html에서 <form action>코드 작성 안함
 	@GetMapping("/deleteBoard")
 	public String deleteBoard(Model model, @RequestParam("boardId") long boardId) {		
 		
@@ -140,6 +143,9 @@ public class BoardController {
 		return "board/deleteBoard";
 	}
 	
+//	오류 발생
+//No primary or single unique constructor found for long :  long타입에 대한 생성자가 없는경우
+// 해결 : 파라메타의 데이터가 @ModelAttribute는 어려 파라메타를 객체로 바인딩 할 때 사용, 데이터가 단일 혹은 단순할 때는 @RequestParam 사용해야 한다.
 	@PostMapping("/deleteBoard")
 	@ResponseBody
 	public String deleteBoard(@RequestParam("boardId") long boardId) {
